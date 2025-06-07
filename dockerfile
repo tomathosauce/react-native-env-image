@@ -22,4 +22,8 @@ COPY .bashrc /root/.bashrc
 SHELL ["/bin/bash", "-c"]
 
 WORKDIR /root/android
-RUN  source /root/.bashrc && echo yes | sdkmanager --install "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+RUN source /root/.bashrc && echo yes | sdkmanager --install "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+WORKDIR /root
+RUN mkdir project
+WORKDIR /root/project
+RUN npm install --global eas-cli

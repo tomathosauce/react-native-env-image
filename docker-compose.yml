@@ -4,3 +4,9 @@ services:
   react-native:
     build: .
     tty: true
+    volumes:
+    - "${PROJECT_PATH}:/root/project"
+  install:
+    extends:
+      service: react-native
+    command: yarn install
